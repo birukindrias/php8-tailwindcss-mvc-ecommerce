@@ -36,13 +36,13 @@ class App
     {
         // echo "<pre>";
         // $id = $this->session->getItem('id') ?? '';
-        if ($this->session->getItem('id') == '') {
-            return true;
-        } elseif ($id = $this->session->getItem('id')) {
-            $user = $this->users->get(['id' => $id])[0];
-            $loading = $this->users->loadData($user);
-            return false;
-        }
+        // if ($this->session->getItem('id') == '') {
+        //     return true;
+        // } elseif ($id = $this->session->getItem('id')) {
+        //     $user = $this->users->get(['id' => $id])[0];
+        //     $loading = $this->users->loadData($user);
+        //     return false;
+        // }
     }
     public function run()
     {
@@ -50,7 +50,7 @@ class App
             echo  $this->router->resolve();
         } catch (\Exception $e) {
             // echo "<pre>";
-            // var_dump($e);
+            // //($e);
             // echo "</pre>";
             $this->view->title = 'error';
             $this->response->setStatusCode($e->getCode());

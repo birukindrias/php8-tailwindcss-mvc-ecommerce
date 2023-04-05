@@ -34,10 +34,15 @@ class Request
                 $body[$key] = filter_input(INPUT_GET, $key, FILTER_SANITIZE_SPECIAL_CHARS);
             };
         } elseif ($this->is_post()) {
+            echo 'from posts';
+            //($_POST );
             foreach ($_POST as $key => $value) {
                 $body[$key] = filter_input(INPUT_POST, $key, FILTER_SANITIZE_SPECIAL_CHARS);
             };
         }
+        echo 'from posts';
+        //($body);
+
         return $body;
     }
     public function filePath($name, $path, $types = [] ?? '', $size = '' ?? null)
@@ -45,7 +50,7 @@ class Request
         if (isset($_FILES[$name])) {
             $errors = array();
             $file_name = $_FILES[$name]['name'];
-            var_dump($file_name);
+            //($file_name);
             $file_size = $_FILES[$name]['size'];
             $file_tmp = $_FILES[$name]['tmp_name'];
             $file_type = $_FILES[$name]['type'];

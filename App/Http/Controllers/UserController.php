@@ -39,7 +39,7 @@ class UserController extends Controller
         if (App::$app->request->is_post()) {
             $DATA = App::$app->request->reqData();
             $USER = new Users();
-            // var_dump($DATA);
+            // //($DATA);
             $DATA['username'] = $DATA['search'];
             unset ($DATA['search']);
             // $USER->loadData($DATA);

@@ -22,6 +22,7 @@ class  artisan
             }
 
             // error_reporting(E_ERROR | E_PARSE);
+
             if (file_get_contents('http://localhost:8080/')) {
                 echo '🥺🥺 server is down dont worry trying another one' . PHP_EOL;
                 for ($i = 0; $i < 5; $i++) {
@@ -36,7 +37,16 @@ class  artisan
             } else {
 
                 $this->log('💥 server 🚀 started successfully 💯💯' . $dot) . PHP_EOL;
+                echo '🥺🥺 server is down dont worry trying another one' . PHP_EOL;
+                for ($i = 0; $i < 5; $i++) {
+                    $ran = rand(0, 6);
+                    for ($i = 0; $i < $ran; $i++) {
+                        $dot =  str_repeat('🚀 ', $i);
 
+                        $this->log('💥starting server ⛽🚀' . $dot) . PHP_EOL;
+                    }
+                    shell_exec("php -S localhost:808$i -t public");
+                }
                 if (shell_exec("php -S localhost:8080 -t public")) {
                     $this->log('💥starting server 🚀 started successfully 💯💯' . $dot) . PHP_EOL;
                 }
@@ -44,6 +54,7 @@ class  artisan
             // error_reporting(E_ERROR);
         }
         foreach ($argv as $key) {
+
             switch ($key) {
                 case 'migrate:refresh':
                     $upd = 'down';

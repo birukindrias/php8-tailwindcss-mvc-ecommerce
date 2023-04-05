@@ -108,8 +108,8 @@ abstract class DbModel
     }
     public  static function search(array $thisarrayok)
     {
-        // var_dump($thisarrayok);
-        // var_dump($thisarrayok);
+        // //($thisarrayok);
+        // //($thisarrayok);
 
         $table_name = static::tableName();
         $array_key = array_keys($thisarrayok);
@@ -118,23 +118,23 @@ abstract class DbModel
         // $input_keys = array_map(fn ($key) => "$key = :$key", $array_key);
         $SQL_QUERY = "SELECT * FROM $table_name WHERE  $input_keys";
         $QUERY_STMT = App::$app->database->pdo->prepare($SQL_QUERY);
-        // var_dump('QUERY_STMT');
-        // var_dump($QUERY_STMT);
+        // //('QUERY_STMT');
+        // //($QUERY_STMT);
 
         foreach ($thisarrayok as $key => $value) {
             $QUERY_STMT->bindValue(":$key", '%' . $value . '%');
         }
 
         $QUERY_STMT->execute();
-        // var_dump(pdo_error(App::$ap->db->pdo));
+        // //(pdo_error(App::$ap->db->pdo));
 
         $retu = $QUERY_STMT->fetchAll(\PDO::FETCH_ASSOC);
 
         if (!empty ($retu)) {
-        // var_dump('QUERY_STMT');
+        // //('QUERY_STMT');
         return $retu;
 
-            // var_dump($retu);
+            // //($retu);
         }else{
             return 'no match found';
         }

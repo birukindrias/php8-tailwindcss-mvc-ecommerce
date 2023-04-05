@@ -19,18 +19,25 @@ abstract class Model extends DbModel
 
     public function loadData($Data)
     {
+        echo "<pre>";
+
+        //('from array');
+
+        //($Data);
+        //('from asdfsdafsadf');
+
         foreach ($Data as $key => $value) {
+            //('from model');
+            //($Data);
             if (property_exists($this, $key)) {
                 if ($key != '') {
-                    $this->{$key} = $value ;
-
+                    $this->{$key} = $value;
                 }
             }
         }
     }
-    public function uploadFile(   )
+    public function uploadFile()
     {
-        
     }
     public function validate()
     {

@@ -1,5 +1,6 @@
 <?php
-$fileinfo = '<?php
+$fileinfo = '
+<?php
 use App\config\App;
 
 class ' . lcfirst($filename) . '{
