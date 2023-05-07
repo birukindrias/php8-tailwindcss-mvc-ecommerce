@@ -266,7 +266,7 @@ class View
         return ob_get_clean();
     }
 
-    public function image($imageName,$di)
+    public function image($imageName,$di='image')
     {
         if ($imageName !== 'userimg') {
             $ii =  '/storage/'.$di.'/' . $imageName;

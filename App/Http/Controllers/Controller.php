@@ -57,6 +57,7 @@ class Controller extends ConfigController
   }
   public function dashboard()
   {
+    
     return $this->render('pages/users/dashboard', 'Dashboard');
   }
 }

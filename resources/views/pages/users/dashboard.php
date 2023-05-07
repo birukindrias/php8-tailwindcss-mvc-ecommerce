@@ -7,7 +7,9 @@
             echo 'welcome to the small  php mvc framework www';
             return;
         } else {
-                
+            $this->import_template ('db');
+             
+            return;
         } ?>
 
 

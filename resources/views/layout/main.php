@@ -26,7 +26,7 @@
         {
           navbarOpen: false
         }
-      " class="flex w-full items-center bg-white">
+      " class="flex w-full h-12 mb-5 items-center bg-white">
         <div class="container mx-auto">
             <div class="relative -mx-4 flex items-center justify-between">
                 <div class="w-60 max-w-full px-4">

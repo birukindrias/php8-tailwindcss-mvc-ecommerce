@@ -15,11 +15,38 @@ abstract class DbModel
         $array_key = $this->attrs();
         $input_keys = array_map(fn ($key) => ":$key", $array_key);
         $sql = "INSERT $tableName (" .  implode(',', $this->attrs()) . ") VALUES (" .  implode(',', $input_keys) . ")";
-        ($sql);
         $stmt = App::$app->database->pdo->prepare($sql);
         foreach ($this->attrs() as $key) {
             $stmt->bindValue(":$key", $this->{$key});
         }
+        var_dump($stmt);
+        var_dump($tableName);
+        try {
+            $stmt->execute();
+            return true;
+        } catch (\Exception $e) {
+            // throw new $e;
+            // echo "<pre>";
+            // var_dump($e);
+            // echo "</pre>";
+            // App::$app->view->title = 'error';
+            echo  App::$app->view->render('pages/error/error', 'error', ['error' => $e]);
+        }
+    }
+    public function savebyValue(array $value)
+    {
+        echo 'asdf loremasdf'; 
+        var_dump($value); 
+        $tableName = $this->tableName();
+        $array_key = $this->attrs();
+        $input_keys = array_map(fn ($key) => ":$key", $array_key);
+        $sql = "INSERT $tableName (" .  implode(',', $this->attrs()) . ") VALUES (" .  implode(',', $input_keys) . ")";
+        $stmt = App::$app->database->pdo->prepare($sql);
+       foreach ($this->attrs() as $key) {
+            $stmt->bindValue(":$key",$this->{$key});
+        }
+        var_dump($stmt);
+        var_dump($tableName);
         try {
             $stmt->execute();
             return true;
