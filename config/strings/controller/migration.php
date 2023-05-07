@@ -1,6 +1,5 @@
 <?php
-$fileinfo = '
-<?php
+$fileinfo = '<?php
 use App\config\App;
 
 class ' . lcfirst($filename) . '{
@@ -15,7 +14,7 @@ class ' . lcfirst($filename) . '{
        )
        ENGINE = INNODB;";
         App::$app->database->pdo->exec($SQL_QUERY);
-        App::$app->database->log("' . lcfirst($filename) . ' Table Created");
+        App::$app->database->log("' . lcfirst($filename) . 's Table Created");
 
     }
     public function down()

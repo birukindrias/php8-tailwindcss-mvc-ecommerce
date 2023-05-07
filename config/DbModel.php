@@ -20,9 +20,17 @@ abstract class DbModel
         foreach ($this->attrs() as $key) {
             $stmt->bindValue(":$key", $this->{$key});
         }
-        $stmt->execute();
-        return true;
-        
+        try {
+            $stmt->execute();
+            return true;
+        } catch (\Exception $e) {
+            // throw new $e;
+            // echo "<pre>";
+            // var_dump($e);
+            // echo "</pre>";
+            // App::$app->view->title = 'error';
+            echo  App::$app->view->render('pages/error/error', 'error', ['error' => $e]);
+        }
     }
     public  static function get(array $keys)
     {
@@ -33,6 +41,22 @@ abstract class DbModel
         $stmt = App::$app->database->pdo->prepare($sql);
         foreach ($keys as $key => $value) {
             $stmt->bindValue(":$key", $value);
+        }
+        $stmt->execute();
+
+        $foundItem = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        return $foundItem;
+    }
+    public  static function delete(array $keys)
+    {
+        $table_name = static::tableName();
+        $array_key = array_keys($keys);
+        $input_keys = implode(' AND ', array_map(fn ($key) => "$key = :$key", $array_key));
+        $sql = "DELETE FROM $table_name WHERE $input_keys";
+        $stmt = App::$app->database->pdo->prepare($sql);
+        var_dump($sql);
+        foreach ($keys as $key => $value) {
+            $stmt->bindValue(":$key", (int)$value);
         }
         $stmt->execute();
 
@@ -78,8 +102,7 @@ abstract class DbModel
         echo "SELECT $get FROM   $table_name where $whr[0] = $whr[1] ";
         $data = App::$app->database->prepare("SELECT $get FROM   $table_name where $whr[0] = $whr[1] ");
         $data->execute();
-        ($data->fetchAll());
-        return    $data->fetch();
+        return $data->fetch();
     }
     public function update(array $keys, array $values)
     {
@@ -108,36 +131,40 @@ abstract class DbModel
     }
     public  static function search(array $thisarrayok)
     {
-        // //($thisarrayok);
-        // //($thisarrayok);
+
 
         $table_name = static::tableName();
         $array_key = array_keys($thisarrayok);
         $input_keys = implode(' AND ', array_map(fn ($key) => "  $key Like :$key", $array_key));
-
-        // $input_keys = array_map(fn ($key) => "$key = :$key", $array_key);
         $SQL_QUERY = "SELECT * FROM $table_name WHERE  $input_keys";
         $QUERY_STMT = App::$app->database->pdo->prepare($SQL_QUERY);
-        // //('QUERY_STMT');
-        // //($QUERY_STMT);
-
         foreach ($thisarrayok as $key => $value) {
-            $QUERY_STMT->bindValue(":$key", '%' . $value . '%');
+            $QUERY_STMT->bindValue(":$key", $value . '%');
         }
-
         $QUERY_STMT->execute();
-        // //(pdo_error(App::$ap->db->pdo));
-
         $retu = $QUERY_STMT->fetchAll(\PDO::FETCH_ASSOC);
-
-        if (!empty ($retu)) {
-        // //('QUERY_STMT');
-        return $retu;
-
-            // //($retu);
-        }else{
+        if (!empty($retu)) {
+            return $retu;
+        } else {
             return 'no match found';
         }
+    }
+    public  static function innerJoin($table_one, $table_two, array $where_keys = [])
+    {
+
+        $where_and_keys = implode(' AND ', array_map(fn ($key) => "$key = :$key", array_keys($where_keys)));
+        // select from both tables
+        $sql = "SELECT * FROM $table_one RIGHT JOIN $table_two ON $table_one.id = $table_two.p_id WHERE $where_and_keys";
+        $sql = App::$app->database->pdo->prepare($sql);
+        // var_dump($sql);
+        // var_dump($where_keys);
+        foreach ($where_keys as $key => $value) {
+            $sql->bindValue(":$key", $value);
+        }
+        $sql->execute();
+        return $sql->fetchAll(\PDO::FETCH_ASSOC);
+
+
     }
     public function where()
     {

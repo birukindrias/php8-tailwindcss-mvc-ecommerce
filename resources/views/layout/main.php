@@ -6,19 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/tailwind.css" />
-
     <script defer src="assets/js/alpine.min.js"></script>
+    <link rel="shortcut icon" href="assets/fa.png" type="image/x-icon" />
+
     <?php
-
     use App\config\App;
-    // $this->asset('css/style.css');
-    // $this->asset('css/output.css');
     $this->assetjs('js/alpine.min.js');
-
     $this->asset('css/tailwind.css');
-    // $this->assetjs('js/alpine.min.js');
-    // $this->assetjs('js/alpine.min.js');
-
     ?>
     <title>
         <?= $this->title ?>
@@ -106,8 +100,15 @@
                                     <a href="/home" class="py-3 px-7 text-base font-medium text-dark hover:text-primary">
                                         Home
                                     </a>
+                                   
+                                    <a href="/dashboard" class="py-3 px-7 text-base font-medium text-dark hover:text-primary">
+                                        Dashboard
+                                    </a>
                                     <a href="/create" class="py-3 px-7 text-base font-medium text-dark hover:text-primary">
-                                        Post Products
+                                        create
+                                    </a>
+                                    <a href="/carts" class="py-3 px-7 text-base font-medium text-dark hover:text-primary">
+                                        carts
                                     </a>
                                     <a href="/profile" class="py-3 px-7 text-base font-medium text-dark hover:text-primary">
                                         Profile

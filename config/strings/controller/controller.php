@@ -1,6 +1,5 @@
 <?php
-$fileinfo = '
-<?php
+$fileinfo = '<?php
 namespace App\App\Http\Controllers;
 
 use App\App\models\Users;
@@ -23,12 +22,12 @@ class ' . $filename . ' extends Controller
       public  function store()
     {
         if (App::$app->request->is_Post()) {
-            // //(App::$app->request->reqData());
+            // var_dump(App::$app->request->reqData());
             $data = App::$app->request->reqData();
             $user = new Users();
 
             $user->loadData($data);
-            // //($data);
+            // var_dump($data);
             $user->validate();
             $user->save();
             return;

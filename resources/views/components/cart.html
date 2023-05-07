@@ -1,0 +1,65 @@
+<!-- ====== Cards Section Start -->
+<section class="bg-[#F3F4F6] ">
+
+  <div class="-mx-4 flex flex-col h-full w-full">
+    <?php  foreach ($cart as $key => $value) {  ?>
+
+    <div class="w-full flex flex-row justify-between px-4">
+      <div class="mb-10 overflow-hidden rounded-lg bg-white">
+        <div class="p-8 flex flex-row  justify-between sm:p-9 md:p-7 xl:p-9">
+          <img src="<?php echo 
+          $this->image($value['primg'],'prod');?>" alt="image"
+            class="<?= $value['primg'] == 'userimg'?'w-1/3':'w-1/2 h-10'?>" />
+          <h3>
+            <a href="javascript:void(0)" id="tot"
+              class="mb-4 block text-xl font-semibold text-dark hover:text-primary sm:text-[22px] md:text-xl lg:text-[22px] xl:text-xl 2xl:text-[22px]">
+              <?= $value['ctotal'];?>
+            </a>
+            <a href="javascript:void(0)" id="totp"
+              class="mb-4 block text-xl font-semibold text-dark hover:text-primary sm:text-[22px] md:text-xl lg:text-[22px] xl:text-xl 2xl:text-[22px]">
+              <?= $value['pprice']* $value['ctotal'];?>
+            </a>
+
+          </h3>
+          <h3 class="   ">
+            <a href="/remove_cart?p_id=<?= $value['p_id'];?>&u_id=<?= $_SESSION['id'];?>
+            "
+              class="mb-4 block text-xl font-semibold text-dark hover:text-primary sm:text-[22px] md:text-xl lg:text-[22px] xl:text-xl 2xl:text-[22px]">
+              remove
+            </a>
+
+          </h3>
+
+
+          <!-- <p class="mb-7 text-base leading-relaxed text-body-color">
+              elit. Lorem consectetur adipiscing elit.
+            </p>
+<a href="javascript:void(0)"
+  class="inline-block rounded-full border border-[#E5E7EB] py-2 px-7 text-base font-medium text-body-color transition hover:border-primary hover:bg-primary hover:text-white">
+  View Details
+</a>-->
+        </div>
+      </div>
+    </div>
+
+    <?php }?>
+  </div>
+</section>
+<div class="order">
+  <div class="total">
+
+  </div>
+  <div class="order_cart"><a href="order?u_id=$_SESSION['id']">order</a></div>
+</div>
+<script differ>
+  let tarr = [];
+  let sum = 0
+  let tarray = document.querySelectorAll('#totp').forEach(el => console.log(Number(tarr.push(el.innerHTML.trim()))))
+  tarr.map(el => sum += parseInt(el));
+  // console.log(tarr);
+  // console.log(sum);
+  setInterval(() => {
+    document.querySelector('.total').innerHTML = 'TOTAL:' + sum + 'ETB'
+
+  }, 5)</script>
+<!-- ====== Cards Section End -->

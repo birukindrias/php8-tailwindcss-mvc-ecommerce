@@ -1,4 +1,5 @@
 <?php
-include_once __DIR__ . "/tl/hero.html";
+
+ $this->import_template('card', ['products' => $products]);
 ?>
 <!-- <div class="grid place-content-center">welcome to the small www php mvc framework</div> -->

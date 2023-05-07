@@ -1,0 +1,220 @@
+<?php
+
+namespace App;
+
+use App\config\App;
+use App\config\Request;
+
+class  artisan
+{
+
+    public function __construct($argv)
+    {
+        $dir = __DIR__;
+        $filename = $argv[array_key_last($argv)] ?? '';
+        
+            # code...
+        
+        if (
+            empty($argv[1])
+        ) {
+           $this->run();
+            // error_reporting(E_ERROR);
+        }
+        foreach ($argv as $key) {
+
+            switch ($key) {
+                case 'migrate:refresh' :
+                    $upd = 'down';
+                    echo '------------rolling-----------' . PHP_EOL;
+                    $ran = rand(0, 6);
+                    for ($i = 0; $i < $ran; $i++) {
+                        $dot =  str_repeat('⛷', $i);
+
+                        $this->log('💥rolling' . $dot) . PHP_EOL;
+                    }
+                    echo ' ------------DONE----------- ' . PHP_EOL;
+
+                    // echo '....   DONE  .....' . PHP_EOL;
+
+                    require_once __DIR__ . "/config/migration/Migration.php";
+                    echo '------------creating-----------' . PHP_EOL;
+
+                    $upd = 'up';
+
+                    require_once __DIR__ . "/config/migration/Migration.php";
+                    break;
+                case 'migrate' :
+                    $upd = 'up';
+                    echo '------------ migrating -----------' . PHP_EOL;
+                    $ran = rand(0, 6);
+                    for ($i = 0; $i < $ran; $i++) {
+                        $dot =  str_repeat('🚣‍♂️', $i);
+
+                        $this->log('💥migrating' . $dot) . PHP_EOL;
+                    }
+                    echo ' ------------DONE----------- ' . PHP_EOL;
+
+                    require_once __DIR__ . "/config/migration/Migration.php";
+
+                    break;
+                case 'make:controller':
+                   $this->mcontroller ($filename);
+                    break;
+                case 'make:link':
+                    $target = __DIR__.'/storage/';
+$link = 'public/storage';
+symlink($target, $link);
+echo readlink($link);
+                    break;
+                case 'del:controller':
+                    echo "del";
+                  $this->del($filename);
+                    break;
+                case 'make:model' :
+                    require_once __DIR__ . "/config/strings/controller/modal.php";
+
+                    $controller =  fopen(__DIR__ . '/App/models/' . $filename . '.php', 'wra', true);
+                    if (fwrite($controller, $fileinfo)) {
+                        $this->log("💥 $filename model successfully created 💯💯") . PHP_EOL;
+                    }
+                    break;
+                case 'make:migration':
+                    require_once __DIR__ . "/config/strings/controller/migration.php";
+
+                    $controller =  fopen(__DIR__ . '/database/Migrations/' . lcfirst($filename) . '.php', 'wr', true);
+                    if (fwrite($controller, $fileinfo)) {
+                        $this->log("💥 $filename migration successfully created 💯💯") . PHP_EOL;
+                    }
+                    break;
+
+
+                default:
+                // $this->run();
+                break;
+            }
+        }
+        foreach ($argv as $key) {
+
+            switch ($key) {
+          
+           case 'del:a':
+
+            $del = __DIR__ . "/App/Http/Controllers/" . $filename . ".php";
+            // $user_auth =  shell_exec("sudo rm $del");
+            $io = __DIR__ . "/database/Migrations/" . $filename . ".php";
+            // $user_auth =  shell_exec("sudo rm $del");
+            $cc = __DIR__ . "/App/models/" . $filename . ".php";
+            $user_auth =  shell_exec("sudo rm $del $cc $io");
+
+            $this->log("💥 $filename controller successfully deleted 💯💯") . PHP_EOL;
+
+            if (
+                $user_auth
+
+            ) {
+                $this->log("💥 $filename controller successfully deleted 💯💯") . PHP_EOL;
+            }
+            break;
+                case 'make':
+                   $this->mcontroller ($filename,$hi ='Controller');
+                   require_once __DIR__ . "/config/strings/controller/modal.php";
+
+                   $controller =  fopen(__DIR__ . '/App/models/' . $filename . '.php', 'wra', true);
+                   if (fwrite($controller, $fileinfo)) {
+                       $this->log("💥 $filename model successfully created 💯💯") . PHP_EOL;
+                   }
+                   require_once __DIR__ . "/config/strings/controller/migration.php";
+
+                   $controller =  fopen(__DIR__ . '/database/Migrations/' . lcfirst($filename) . '.php', 'wr', true);
+                   if (fwrite($controller, $fileinfo)) {
+                       $this->log("💥 $filename migration successfully created 💯💯") . PHP_EOL;
+                   }
+                    break;
+                
+                
+
+
+                default:
+                // $this->run();
+                break;
+            }
+        }
+    }
+
+    public function log($message)
+    {
+        echo "[" . date("Y-m-d H:i:s") . "] - " . $message . PHP_EOL;
+    }
+    public function run(   )
+
+    {
+        $ran = rand(0, 6);
+        for ($i = 0; $i < $ran; $i++) {
+            $dot =  str_repeat('🚀 ', $i);
+
+            $this->log('💥starting server ⛽🚀' . $dot) . PHP_EOL;
+        }
+
+        // error_reporting(E_ERROR | E_PARSE);
+
+        if (file_get_contents('http://localhost:8080/')) {
+            echo '🥺🥺 server is down dont worry trying another one' . PHP_EOL;
+            for ($i = 0; $i < 5; $i++) {
+                $ran = rand(0, 6);
+                for ($i = 0; $i < $ran; $i++) {
+                    $dot =  str_repeat('🚀 ', $i);
+
+                    $this->log('💥starting server ⛽🚀' . $dot) . PHP_EOL;
+                }
+                shell_exec("php -S localhost:808$i -t public");
+            }
+        } else {
+
+            $this->log('💥 server 🚀 started successfully 💯💯' . $dot) . PHP_EOL;
+            echo '🥺🥺 server is down dont worry trying another one' . PHP_EOL;
+            for ($i = 0; $i < 5; $i++) {
+                $ran = rand(0, 6);
+                for ($i = 0; $i < $ran; $i++) {
+                    $dot =  str_repeat('🚀 ', $i);
+
+                    $this->log('💥starting server ⛽🚀' . $dot) . PHP_EOL;
+                }
+                shell_exec("php -S localhost:808$i -t public");
+            }
+           
+        }}
+        public function del($filename)
+        {
+            $del = __DIR__ . "/App/Http/Controllers/" . $filename . ".php";
+            $this->log("💥 $filename controller successfully deleted 💯💯") . PHP_EOL;
+
+            $user_auth =  shell_exec("sudo rm $del");
+            if (
+                $user_auth
+
+            ) {
+                $this->log("💥 $filename controller successfully deleted 💯💯") . PHP_EOL;
+            }
+        }
+        public function mcontroller($filename,$hi = '')
+        {
+            $filename = $filename . $hi;
+
+            require_once __DIR__ . "/config/strings/controller/controller.php";
+            $controller =  fopen('App/Http/Controllers/' . $filename .'.php','a');
+            // fclose($controller);
+// ejcho $fileinfo;
+// j
+            // file_put_contents('App/Http/Controllers/' . $filename . '.php', $fileinfo);
+            if (
+                fwrite($controller, $fileinfo)
+// file_put_contents('App/Http/Controllers/' . $filename . '.php', $contents)
+
+
+            ) {
+                $this->log("💥 $filename controller successfully created 💯💯") . PHP_EOL;
+            }
+        }
+}
+new artisan($argv);

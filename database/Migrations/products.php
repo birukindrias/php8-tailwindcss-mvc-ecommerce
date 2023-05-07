@@ -7,14 +7,12 @@ class products{
         $SQL_QUERY = "CREATE TABLE IF NOT EXISTS  products (
                   id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
                   pname VARCHAR(50),
-                  primg VARCHAR(50) DEFAULT NULL,
-                  pprice VARCHAR(50),
                   amount VARCHAR(50),
-                  user_id INT
-       )
+                  primg VARCHAR(50),
+                  pprice VARCHAR(50)       )
        ENGINE = INNODB;";
         App::$app->database->pdo->exec($SQL_QUERY);
-        App::$app->database->log("products Table Created");
+        App::$app->database->log("productss Table Created");
 
     }
     public function down()

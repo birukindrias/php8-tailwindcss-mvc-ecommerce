@@ -1,10 +1,11 @@
 
-<body class="bg-blue-100 antialiased " style="background-image: url(<?=$this->image($user->image);?> );">
+<body class="bg-blue-100 antialiased " style="">
     <div class="container mx-auto my-32">
         <div>
 
             <div class="bg-white relative shadow rounded-lg  w-5/6 md:w-5/6  lg:w-4/6 xl:w-3/6 mx-auto py-8">
                 <div class="flex justify-center">
+
                     <img src=<?=$this->image($user->image);?>  alt="" class="rounded-full mx-auto absolute -top-20 w-32 h-32 shadow-md border-4 border-white transition duration-200 transform hover:scale-110">
                 </div>
 
@@ -19,13 +20,16 @@
                     <div class="my-5 px-6">
                         <form action="/profile" method="post" enctype="multipart/form-data">
 
-<!-- 
+
                         <div class="mb-6">
                             <input name="file" value=<?= $user->image ?> type="file" placeholder="image" class="bordder-[#E9EDF4] w-full rounded-md border bg-[#FCFDFE] py-3 px-5 text-base text-body-color placeholder-[#ACB6BE] outline-none focus:border-primary focus-visible:shadow-none" />
-                        </div> -->
+                        </div>
                         <?php
-    // use App\config\App;
-$this->item('button');
+                        // echo $this->image($user->image);
+                        // echo $user->image;
+                        
+    // use App\config\App;28554Screenshot_2023-05-03_09_27_35.png
+echo $this->item('button');
 // include_once dirname(__DIR__)."/../tl/profile.html";?>
                         <div class="mb-6">
                             <input name="username" value=<?= $user->username ?> type="text" placeholder="username" class="bordder-[#E9EDF4] w-full rounded-md border bg-[#FCFDFE] py-3 px-5 text-base text-body-color placeholder-[#ACB6BE] outline-none focus:border-primary focus-visible:shadow-none" />

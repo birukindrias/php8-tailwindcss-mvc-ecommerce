@@ -1,1 +1,1 @@
-alert('start');
+alert('sadfsdf');

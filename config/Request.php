@@ -8,7 +8,19 @@ class Request
     {
         $uri_REQ = $_SERVER['REQUEST_URI'];
         return strpos($uri_REQ, '?') ? substr($uri_REQ, 0, strpos($uri_REQ, '?')) : $uri_REQ;
-    }
+    }    
+/**
+ * redirect
+ *
+ * @param mixed location
+ *
+ * @return void
+ */
+
+    public function redirect($location)
+    {
+        
+        return header("location: $location") ;   }
     public function urlMethod()
     {
         $METHOD_REQ = $_SERVER['REQUEST_METHOD'];
@@ -34,15 +46,10 @@ class Request
                 $body[$key] = filter_input(INPUT_GET, $key, FILTER_SANITIZE_SPECIAL_CHARS);
             };
         } elseif ($this->is_post()) {
-            echo 'from posts';
-            //($_POST );
             foreach ($_POST as $key => $value) {
                 $body[$key] = filter_input(INPUT_POST, $key, FILTER_SANITIZE_SPECIAL_CHARS);
             };
         }
-        echo 'from posts';
-        //($body);
-
         return $body;
     }
     public function filePath($name, $path, $types = [] ?? '', $size = '' ?? null)
@@ -50,7 +57,7 @@ class Request
         if (isset($_FILES[$name])) {
             $errors = array();
             $file_name = $_FILES[$name]['name'];
-            //($file_name);
+            var_dump($file_name);
             $file_size = $_FILES[$name]['size'];
             $file_tmp = $_FILES[$name]['tmp_name'];
             $file_type = $_FILES[$name]['type'];
@@ -73,7 +80,7 @@ class Request
             if ($file_size > 10) {
                 if (empty($errors) == true) {
                     $randNme = rand(0, 30000) . $file_name;
-                    move_uploaded_file($file_tmp, dirname(__DIR__) . '/storage/files/' . $path . '/' . $randNme);
+                    move_uploaded_file($file_tmp, dirname(__DIR__) . '/storage/' . $path . '/' . $randNme);
 
                     return $randNme;
                 } else {
