@@ -15,12 +15,7 @@ class RouterTest extends TestCase
         $router->get('/hello', function ($params) {
             return 'Hello ' ;
         });
-        $this->request->urlMethod(){
-            return 'get';
-        };
-        $this->request->urlPath(){
-            return '/hello'
-;        }
+  
         $result = $router->resolve();
 
         $this->assertEquals('Hello ', $result);

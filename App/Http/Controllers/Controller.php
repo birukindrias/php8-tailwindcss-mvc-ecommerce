@@ -3,6 +3,7 @@
 namespace App\App\Http\Controllers;
 
 use App\App\models\Cart;
+use App\App\models\Order;
 use App\App\models\Product;
 use App\App\models\Users;
 use App\config\App;
@@ -58,6 +59,7 @@ class Controller extends ConfigController
   public function dashboard()
   {
     
-    return $this->render('pages/users/dashboard', 'Dashboard');
+    $order =new Order ();
+    return $this->render('pages/users/dashboard', 'Dashboard', ['order' => $order->get(['u_id' => $_SESSION['id']])]);
   }
 }

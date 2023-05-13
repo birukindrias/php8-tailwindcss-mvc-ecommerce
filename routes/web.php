@@ -18,7 +18,7 @@ $route->get('/logout', [AuthController::class, 'logOut']);
 // users
 $route->get('/profile', [Controller::class, 'profile']);
 $route->post('/profile', [Controller::class, 'profile']);
-$route->post('/search', [UserController::class, 'serch_item']);
+$route->post('/search', [Controller::class, 'serch_item']);
 $route->get('/home', [Controller::class, 'index']);
 $route->get('/', [Controller::class, 'index']);
 // products

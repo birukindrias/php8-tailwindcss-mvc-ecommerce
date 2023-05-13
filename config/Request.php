@@ -4,23 +4,27 @@ namespace App\config;
 
 class Request
 {
+    public string $url = '';
+    public string $paths = '';
     public function urlPath()
     {
         $uri_REQ = $_SERVER['REQUEST_URI'];
         return strpos($uri_REQ, '?') ? substr($uri_REQ, 0, strpos($uri_REQ, '?')) : $uri_REQ;
-    }    
-/**
- * redirect
- *
- * @param mixed location
- *
- * @return void
- */
+    }
+    /**
+     * redirect
+     *
+     * @param mixed location
+     *
+     * @return void
+     */
 
     public function redirect($location)
     {
-        
-        return header("location: $location") ;   }
+
+        return header("location: $location");
+    }
+   
     public function urlMethod()
     {
         $METHOD_REQ = $_SERVER['REQUEST_METHOD'];
@@ -79,7 +83,7 @@ class Request
             $rand = rand(0, 30000);;
             if ($file_size > 10) {
                 if (empty($errors) == true) {
-                    $randNme = rand(0, 30000) . $file_name;
+                    $randNme = rand(0, 30000) . 'file_name' . rand(0, 30000);
                     move_uploaded_file($file_tmp, dirname(__DIR__) . '/storage/' . $path . '/' . $randNme);
 
                     return $randNme;
@@ -87,7 +91,7 @@ class Request
                     return $errors;
                 }
             } else {
-                return App::$app->users->image  ;
+                return App::$app->users->image;
             }
         }
 

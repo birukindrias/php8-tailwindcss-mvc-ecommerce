@@ -25,8 +25,7 @@ class AuthController extends Controller
                 $id =  $users->get(['email' => $data['email'], 'password' => $data['password']])[0]['id'];
                 App::$app->session->setItem('id', $id);
                 App::$app->session->setFlash('success', 'Thanks for registering');
-                App::$app->response->redirect('/home');
-                return 'Show success page';
+                return   App::$app->response->redirect('/home');
             }
         }
         return  $this->render('pages/Auth/register', 'mvc | Register');

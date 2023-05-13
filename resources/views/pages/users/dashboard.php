@@ -3,11 +3,12 @@
 
         use App\config\App;
 
+        // var_dump($order);
         if (App::$app->isGuest()) {
             echo 'welcome to the small  php mvc framework www';
             return;
         } else {
-            $this->import_template ('db');
+            $this->import_template ('db',['order'=> $order]);
              
             return;
         } ?>

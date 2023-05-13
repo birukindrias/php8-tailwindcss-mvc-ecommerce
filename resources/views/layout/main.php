@@ -7,12 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/tailwind.css" />
     <script defer src="assets/js/alpine.min.js"></script>
-    <link rel="shortcut icon" href="assets/fa.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="assets/logo.jpg" type="image/x-icon" />
 
     <?php
     use App\config\App;
     $this->assetjs('js/alpine.min.js');
     $this->asset('css/tailwind.css');
+   
     ?>
     <title>
         <?= $this->title ?>
@@ -30,7 +31,7 @@
         <div class="container mx-auto">
             <div class="relative -mx-4 flex items-center justify-between">
                 <div class="w-60 max-w-full px-4">
-                    <a href="/" class="block  h-16 w-16">
+                    <a href="/" class="block  h-10 w-16">
                         <img src="/assets/logo.jpg" alt="logo" class="w-full" />
                     </a>
                 </div>
