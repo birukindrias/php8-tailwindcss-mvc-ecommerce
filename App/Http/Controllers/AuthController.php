@@ -26,6 +26,8 @@ class AuthController extends Controller
                 // App::$app->session->setItem('id', $id);
                 // App::$app->session->setFlash('success', 'Thanks for registering');
                  $response = [
+                    'id' =>
+                    $id,
                     'success' => true,
                     'message' => 'Registration successful',
                     'redirect' => '/home'
