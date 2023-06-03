@@ -7,9 +7,9 @@ use App\config\Model;
 class Users extends Model
 {
     public string $username = '';
-    public string $email = '';
+    public string $phoneNumber = '';
     public string $password = '';
-    public string $image = 'userimg';
+    // public string $image = 'userimg';
     
     public static function tableName():string
     {
@@ -19,9 +19,7 @@ class Users extends Model
     {
         return [
             'username' => [self::RULE_REQUIRED],
-            'email' => [self::RULE_REQUIRED, self::RULE_EMAIL, [
-                self::RULE_UNIQUE, 'class' => self::class
-            ]],
+            'phoneNumber' => [self::RULE_REQUIRED],
             'password' => [self::RULE_REQUIRED, [self::RULE_MIN, 'min' => 8]],
          
         ];
@@ -30,9 +28,8 @@ class Users extends Model
     {
         return [
             'username',
-            'email',
+            'phoneNumber',
             'password',
-            'image'
         ];
     }
    

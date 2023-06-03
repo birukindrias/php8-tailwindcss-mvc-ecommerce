@@ -19,8 +19,8 @@ abstract class DbModel
         foreach ($this->attrs() as $key) {
             $stmt->bindValue(":$key", $this->{$key});
         }
-        var_dump($stmt);
-        var_dump($tableName);
+        // var_dump($stmt);
+        // var_dump($tableName);
         try {
             $stmt->execute();
             return true;

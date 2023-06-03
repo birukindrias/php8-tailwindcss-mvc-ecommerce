@@ -1,3 +1,4 @@
+
 <?php
 // namespace App\database\Migrations;
 
@@ -10,10 +11,10 @@ class  users
         $sql =  "CREATE TABLE IF NOT EXISTS users (
             id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
             username VARCHAR(50),
-            email VARCHAR(50),
+            phoneNumber VARCHAR(50),
             password VARCHAR(50),
-            created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-            image VARCHAR(50))
+            created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+            )
  ENGINE = INNODB;";
         App::$app->database->pdo->exec($sql);
         App::$app->database->log("users Table Created");

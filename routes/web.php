@@ -12,15 +12,18 @@ $route = App::$app->router;
 //Auth
 $route->post('/register', [AuthController::class, 'register']);
 $route->get('/register', [AuthController::class, 'register']);
+$route->get('/', [AuthController::class, 'register']);
 $route->post('/login', [AuthController::class, 'login']);
+// $route->post('/login', [AuthController::class, 'login']);
 $route->get('/login', [AuthController::class, 'login']);
 $route->get('/logout', [AuthController::class, 'logOut']);
 // users
 $route->get('/profile', [Controller::class, 'profile']);
 $route->post('/profile', [Controller::class, 'profile']);
 $route->post('/search', [Controller::class, 'serch_item']);
-$route->get('/home', [Controller::class, 'index']);
-$route->get('/', [Controller::class, 'index']);
+$route->get('/home', [Controller::class, 'play']);
+// $route->get('/', [Controller::class, 'play']);
+$route->get('/playg', [Controller::class, 'game']);
 // products
 $route->post('/create', [ControllersPostsController::class, 'store']);
 $route->get('/create', [ControllersPostsController::class, 'create']);

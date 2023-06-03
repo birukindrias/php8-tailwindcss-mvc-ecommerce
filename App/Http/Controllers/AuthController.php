@@ -13,6 +13,40 @@ class AuthController extends Controller
     {
         return $this->render('home', 'home');
     }
+    public function registerapi()
+    {
+        $users = new Users();
+
+        if (App::$app->request->is_post()) {
+            $data = json_decode(file_get_contents('php://input'), true);
+            $users->loadData($data);
+
+            if ($users->validate() && $users->save()) {
+                $id = $users->get(['phoneNumber' => $data['phoneNumber'], 'password' => $data['password']])[0]['id'];
+                // App::$app->session->setItem('id', $id);
+                // App::$app->session->setFlash('success', 'Thanks for registering');
+                 $response = [
+                    'success' => true,
+                    'message' => 'Registration successful',
+                    'redirect' => '/home'
+                ];
+            } else {
+                $errors = '$users->getErrors()';
+                $response = [
+                    'success' => false,
+                    'message' => 'Registration failed',
+                    'errors' => $errors
+                ];
+            }
+
+            header('Content-Type: application/json');
+            echo json_encode($response);
+            return;
+        }
+
+        // return $this->render('pages/Auth/register', 'mvc | Register');
+    }
+
     public function register()
     {
 

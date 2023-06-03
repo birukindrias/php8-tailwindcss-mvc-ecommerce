@@ -14,19 +14,13 @@
 </head>
 
 <body>
-    <div class="gridi-containerip">
-        <!-- Generating the grid dynamically from the rooms array -->
-        <?php
-        $rooms = [10, 20, 30, 40];
-        foreach ($rooms as $room) {
-        ?>
-            <div class="room-number">
-                <a href="playg?room=<?php echo $room; ?>"><?php echo $room; ?>ETB</a>
-            </div>
-        <?php
-        }
-        ?>
+    <div class="container">
+        <div class="winner">Winner: </div>
+
+        <div id="grid"></div>
+
     </div>
+    <div class="room" hidden><?= $_GET['room'] ?></div>
     <!-- <div id="app">
         <input type="text" id="room" placeholder="Enter room">
         <button onclick="joinRoom()">Join Room</button>

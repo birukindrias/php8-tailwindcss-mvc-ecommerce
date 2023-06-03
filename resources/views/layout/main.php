@@ -99,18 +99,18 @@
 
 
                                     <a href="/home" class="py-3 px-7 text-base font-medium text-dark hover:text-primary">
-                                        Home
+                                        Play
                                     </a>
                                    
                                     <a href="/dashboard" class="py-3 px-7 text-base font-medium text-dark hover:text-primary">
                                         Dashboard
                                     </a>
-                                    <a href="/create" class="py-3 px-7 text-base font-medium text-dark hover:text-primary">
+                                    <!-- <a href="/create" class="py-3 px-7 text-base font-medium text-dark hover:text-primary">
                                         create
-                                    </a>
-                                    <a href="/carts" class="py-3 px-7 text-base font-medium text-dark hover:text-primary">
-                                        carts
-                                    </a>
+                                    </a> -->
+                                    <!-- <a href="/carts" class="py-3 px-7 text-base font-medium text-dark hover:text-primary">
+                                        prod
+                                    </a> -->
                                     <a href="/profile" class="py-3 px-7 text-base font-medium text-dark hover:text-primary">
                                         Profile
                                     </a>

@@ -19,6 +19,18 @@ class Controller extends ConfigController
     $cart = new Cart();
     return $this->render('home', 'Home',['products' =>$products->getAll()]);
   }
+  public function play()
+  {
+    $products = new Product ();
+    $cart = new Cart();
+    return $this->render('home', 'Home',['products' =>$products->getAll()]);
+  }
+  public function game()
+  {
+    // $products = new Product ();
+    // $cart = new Cart();
+    return $this->render('game', 'game');
+  }
   public function profile()
   {
     $users = new Users();
