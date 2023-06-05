@@ -10,10 +10,12 @@
     <link rel="shortcut icon" href="assets/logo.jpg" type="image/x-icon" />
 
     <?php
+
     use App\config\App;
+
     $this->assetjs('js/alpine.min.js');
     $this->asset('css/tailwind.css');
-   
+
     ?>
     <title>
         <?= $this->title ?>
@@ -82,6 +84,7 @@
                                     </a>
                                 </li> -->
                                 <?php
+                           
 
                                 if (App::$app->isGuest()) { ?>
                                     <li>
@@ -101,7 +104,7 @@
                                     <a href="/home" class="py-3 px-7 text-base font-medium text-dark hover:text-primary">
                                         Play
                                     </a>
-                                   
+
                                     <a href="/dashboard" class="py-3 px-7 text-base font-medium text-dark hover:text-primary">
                                         Dashboard
                                     </a>

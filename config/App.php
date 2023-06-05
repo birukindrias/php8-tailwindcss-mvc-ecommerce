@@ -39,7 +39,7 @@ class App
         if ($this->session->getItem('id') == '') {
             return true;
         } elseif ($id = $this->session->getItem('id')) {
-            $user = $this->users->get(['id' => $id])[0];
+            $user = $this->users->get([$this->users->id() => $id])[0];
             $loading = $this->users->loadData($user);
             return false;
         }

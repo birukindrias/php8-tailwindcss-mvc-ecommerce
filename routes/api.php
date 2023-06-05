@@ -9,6 +9,7 @@ header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type");
 
 $route = App::$app->router;
+$route->post('/api/save_winner', [AuthController::class, 'save_winner']);
 $route->get('/api/signup', [CartController::class, 'store']);
 $route->get('/order', [CartController::class, 'order_cart']);
 $route->post('/api/register', [AuthController::class, 'registerapi']);

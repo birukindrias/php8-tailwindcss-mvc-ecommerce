@@ -138,7 +138,8 @@ h1 {
             width: 300px;
             margin: 0 auto;
             padding: 20px;
-            background-color: #f1f1f1;
+            /* background-color: #f1f1f1; */
+            background-image: url('/assets/box.jpg');
         }
 
         .containerip label {

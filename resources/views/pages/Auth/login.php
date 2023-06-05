@@ -1,5 +1,10 @@
 <?php
 
+use App\config\App;
+
+if (!App::$app->isGuest()) {
+  return App::$app->response->redirect('/dashboard');
+}
 // include_once dirname(__DIR__)."/../tl/forms.html";
 ?>
 <!DOCTYPE html>

@@ -34,6 +34,9 @@
         display: none !important
     }
 </style>
+<script>
+    let isDark = false;
+</script>
 <link rel=canonical href=https://tailwindcomponents.com/component/responsive-admin-template/landing>
 <meta http-equiv=content-security-policy
     content="default-src 'none'; font-src 'self' data:; img-src 'self' data:; style-src 'unsafe-inline'; media-src 'self' data:; script-src 'unsafe-inline' data:; object-src 'self' data:; frame-src 'self' data:;">
@@ -77,10 +80,10 @@
                         <div class=text-right>
                             <p class=text-2xl><?= count($order);
                                                                                                                                                             ?></p>
-                            <p>Visitors</p>
+                            <p>Players</p>
                         </div>
                     </div>
-                    <!-- <div
+                    <div
                         class="bg-blue-500 dark:bg-gray-800 shadow-lg rounded-md flex items-center justify-between p-3 border-b-4 border-blue-600 dark:border-gray-600 text-white font-medium group">
                         <div
                             class="flex justify-center items-center w-14 h-14 bg-white rounded-full transition-all duration-300 transform group-hover:rotate-12">
@@ -95,7 +98,7 @@
                                 <?= count($order);
                                                                                                                                 ?>
                             </p>
-                            <p>Orders</p>
+                            <p>Profite</p>
                         </div>
                     </div>
                     <div
@@ -119,9 +122,9 @@
                                 
                                                                                                                                 ?>
                             </p>
-                            <p>Sales</p>
+                            <p>Games</p>
                         </div>
-                    </div> -->
+                    </div>
                     <div
                         class="bg-blue-500 dark:bg-gray-800 shadow-lg rounded-md flex items-center justify-between p-3 border-b-4 border-blue-600 dark:border-gray-600 text-white font-medium group">
                         <div
@@ -143,7 +146,7 @@
                                     echo $total;
                                                                 
                                                                                                                                                                 ?></p>
-                            <p>Balances</p>
+                            <p>Balance</p>
                         </div>
                     </div>
                 </div>
@@ -296,7 +299,7 @@ Approve                                                        </span>
                         <script>
                             let all_text = document.querySelectorAll('div')
                             setInterval(() => {
-                                alert('sdf')
+                                // alert('sdf')
                                 all_text.forEach(e => {
                                     if (e.innerText == ' This a Admin Dashboard along with dark mode & responsive sidebar by Robin Hossain. Component details ') {
 
