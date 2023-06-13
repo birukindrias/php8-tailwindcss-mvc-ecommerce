@@ -1,5 +1,7 @@
 <?php
+
 use App\config\App;
+
 if (!App::$app->isGuest()) {
   return App::$app->response->redirect('/dashboard');
 }
@@ -24,13 +26,13 @@ if (!App::$app->isGuest()) {
               <input name="username" type="text" placeholder="username" class="bordder-[#E9EDF4] w-full rounded-md border bg-[#FCFDFE] py-3 px-5 text-base text-body-color placeholder-[#ACB6BE] outline-none focus:border-primary focus-visible:shadow-none" />
             </div>
             <div class="mb-6">
-              <input name="phonenumber" type="text" placeholder="username" class="bordder-[#E9EDF4] w-full rounded-md border bg-[#FCFDFE] py-3 px-5 text-base text-body-color placeholder-[#ACB6BE] outline-none focus:border-primary focus-visible:shadow-none" />
+              <input name="phonenumber" type="number" placeholder="PhoneNumber" class="bordder-[#E9EDF4] w-full rounded-md border bg-[#FCFDFE] py-3 px-5 text-base text-body-color placeholder-[#ACB6BE] outline-none focus:border-primary focus-visible:shadow-none" />
             </div>
             <div class="mb-6">
-              <input name="paymentmethod" type="text" placeholder="username" class="bordder-[#E9EDF4] w-full rounded-md border bg-[#FCFDFE] py-3 px-5 text-base text-body-color placeholder-[#ACB6BE] outline-none focus:border-primary focus-visible:shadow-none" />
+              <input name="paymentmethod" type="text" placeholder="PaymentMethod" class="bordder-[#E9EDF4] w-full rounded-md border bg-[#FCFDFE] py-3 px-5 text-base text-body-color placeholder-[#ACB6BE] outline-none focus:border-primary focus-visible:shadow-none" />
             </div>
             <div class="mb-6">
-              <input name="balance" type="text" placeholder="username" class="bordder-[#E9EDF4] w-full rounded-md border bg-[#FCFDFE] py-3 px-5 text-base text-body-color placeholder-[#ACB6BE] outline-none focus:border-primary focus-visible:shadow-none" />
+              <input name="balance" type="number" placeholder="Balance" class="bordder-[#E9EDF4] w-full rounded-md border bg-[#FCFDFE] py-3 px-5 text-base text-body-color placeholder-[#ACB6BE] outline-none focus:border-primary focus-visible:shadow-none" />
             </div>
 
             <div class="mb-6">

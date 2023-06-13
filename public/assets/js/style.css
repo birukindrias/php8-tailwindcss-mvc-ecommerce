@@ -119,10 +119,11 @@ h1 {
             font-size: 24px;
             width: 120px;
             height: 120px;
-            background-color: #eaeaea;
+            background:  url('http://localhost:8084/assets/box.jpg') black !important;
+            background-image:  url('http://localhost:8084/assets/box.jpg') black !important;
             border-radius: 50%;
             box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s ease;
+            transition: background 0.3s ease;
         }
 
         .room-number:hover {
@@ -181,7 +182,7 @@ h1 {
             font-size: 24px;
             width: 10rem;
             height: 10rem;
-            background-color: #eaeaea;
+            /* background-color: #eaeaea; */
             background: red;
             border-radius: 50%;
             box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
@@ -190,7 +191,7 @@ h1 {
 
         .room-number:hover {
             color: yellow;
-            background-color: #b3b3b3;
+            /* background-color: #b3b3b3; */
         }
 
         .room-number a {
