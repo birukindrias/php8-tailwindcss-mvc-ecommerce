@@ -15,7 +15,7 @@ $route->get('/order', [CartController::class, 'order_cart']);
 $route->post('/api/register', [AuthController::class, 'registerapi']);
 $route->get('/api/register', [AuthController::class, 'register']);
 $route->get('/', [AuthController::class, 'register']);
-$route->post('/api/login', [AuthController::class, 'login']);
+$route->post('/api/login', [AuthController::class, 'loginapi']);
 // $route->post('/login', [AuthController::class, 'login']);
 $route->get('/api/login', [AuthController::class, 'login']);
 $route->get('/api/logout', [AuthController::class, 'logOut']);

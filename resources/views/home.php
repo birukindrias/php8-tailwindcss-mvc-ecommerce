@@ -11,22 +11,16 @@
     <!-- <script src="https://cdn.socket.io/socket.io-3.0.0.js"></script> -->
     <script defer src="/assets/js/io.js"></script>
     <script defer src="/assets/js/script.js"></script>
+    <style lang="csss">
+            iframe{
+                height: 100vh;
+            }
+    </style>
 </head>
 
 <body>
-    <div class="gridi-containerip">
-        <!-- Generating the grid dynamically from the rooms array -->
-        <?php
-        $rooms = [10, 20, 30, 40];
-        foreach ($rooms as $room) {
-        ?>
-            <div class="room-number">
-                <a href="playg?room=<?php echo $room; ?>"><?php echo $room; ?>ETB</a>
-            </div>
-        <?php
-        }
-        ?>
-    </div>
+    <iframe src="http://localhost:8080?type=admin&type=admin<?= $_SESSION['id'] ?>" frameborder="1" width="100%" height="100vh !important"></iframe>
+
     <!-- <div id="app">
         <input type="text" id="room" placeholder="Enter room">
         <button onclick="joinRoom()">Join Room</button>

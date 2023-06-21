@@ -37,6 +37,7 @@ class App
         // echo "<pre>";
         // $id = $this->session->getItem('id') ?? '';
         if ($this->session->getItem('id') == '') {
+            // var_dump($this->session->getItem('id'));
             return true;
         } elseif ($id = $this->session->getItem('id')) {
             $user = $this->users->get([$this->users->id() => $id])[0];

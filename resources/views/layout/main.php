@@ -34,7 +34,7 @@
             <div class="relative -mx-4 flex items-center justify-between">
                 <div class="w-60 max-w-full px-4">
                     <a href="/" class="block  h-10 w-16">
-                        <img src="/assets/logo.jpg" alt="logo" class="w-full" />
+                        <img src="/assets/bigbg.jpg" alt="logo" class="w-full" />
                     </a>
                 </div>
                 <div class="flex w-full items-center justify-between px-4">
@@ -84,7 +84,7 @@
                                     </a>
                                 </li> -->
                                 <?php
-                           
+
 
                                 if (App::$app->isGuest()) { ?>
                                     <li>
