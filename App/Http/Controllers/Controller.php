@@ -96,8 +96,11 @@ class Controller extends ConfigController
         $admin_array[] = $item[1];
       }
     }
-
+// 
     $order = new Order();
+    if (condition) {
+      # code...
+    }
     return $this->render('pages/users/dashboard', 'Dashboard', ['order' => count($admin_array), 'user' => count($user_array)]);
   }
 }

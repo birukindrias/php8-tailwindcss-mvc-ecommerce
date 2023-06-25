@@ -78,11 +78,14 @@ class AuthController extends Controller
             if ($users->save()) {
 
                 $id = $users->get(['phoneNumber' => $data['phoneNumber'], 'password' => $data['password']])[0]['id'];
+                $username = $users->get(['phoneNumber' => $data['phoneNumber'], 'password' => $data['password']])[0]['username'];
                 // App::$app->session->setItem('id', $id);
                 // App::$app->session->setFlash('success', 'Thanks for registering');
                 $response = [
                     'id' =>
                     $id,
+                    'username' =>
+                    $username,
                     'success' => true,
                     'message' => 'Registration successful',
                     'redirect' => '/home'
